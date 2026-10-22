@@ -1,4 +1,4 @@
-"""Configuración central del proyecto (ajusta estos valores a tu montaje físico)."""
+"""Configuración central del proyecto"""
 from dataclasses import dataclass
 
 
