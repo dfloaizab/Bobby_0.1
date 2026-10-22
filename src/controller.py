@@ -1,7 +1,7 @@
 """Controlador de partida: une observaciones (cámara/consola/UI), el estado y el agente.
 
-Flujo físico: el humano mueve -> el agente responde -> se anuncia la jugada del agente (XR/pantalla)
--> el humano la ejecuta en el tablero real -> la cámara lo confirma -> turno del humano.
+Flujo físico: aprendiz mueve -> el "coach" inteligente responde -> se anuncia la jugada del coach (XR/pantalla/otra)
+-> el aprendiz la ejecuta en el tablero real -> la cámara lo confirma -> turno del aprendiz.
 """
 from __future__ import annotations
 import threading
@@ -15,7 +15,7 @@ class GameController:
         self.human_color, self.max_mismatch = human_color, max_mismatch
         self.board = chess.Board()
         self.pending: chess.Move | None = None   # jugada del agente a la espera de ser ejecutada físicamente
-        self.last_eval: int | None = None        # centipeones, punto de vista de las blancas
+        self.last_eval: int | None = None        # centipeones, unidad de medida del motor UCE (Stockfish) para medir la jugada desde el punto de vista de las blancas
         self.last_move_uci: str | None = None
         self._lock = threading.RLock()
 
@@ -46,7 +46,7 @@ class GameController:
         with self._lock:
             if self.board.is_game_over():
                 return
-            if self.pending is not None:  # esperando que el humano ejecute la jugada del agente
+            if self.pending is not None:  # esperando que el aprendiz ejecute la jugada del agente
                 after = self.board.copy(stack=False)
                 after.push(self.pending)
                 if observed == occupancy_from_board(after):
