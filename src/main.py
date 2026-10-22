@@ -62,7 +62,8 @@ async def amain(args):
         stop.set()
         agent.close()
 
-
+# ToDo:  (1) Refinar "loop" principal.
+#        (2) Tener en cuenta a Bobby (a futuro) como un agente conversacional.
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--mode", choices=["console", "camera"], default="console")
