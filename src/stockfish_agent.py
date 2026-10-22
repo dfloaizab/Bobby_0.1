@@ -1,4 +1,5 @@
 """Agentes de juego: Stockfish por UCI y un agente aleatorio para desarrollar sin el binario."""
+""" (Debe instalarse o actualizarse el  módulo chess previamente: pip install chess """
 from __future__ import annotations
 import random
 import chess
