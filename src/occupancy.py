@@ -1,4 +1,5 @@
 """Detección de ocupación y color por casilla sobre la vista cenital rectificada."""
+""" (Del módulo de visión de la aplicación) """
 from __future__ import annotations
 import chess
 import cv2
