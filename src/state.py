@@ -1,7 +1,7 @@
 """Lógica de tablero: ocupación esperada e inferencia de la jugada a partir de lo observado.
 
-Idea clave: no hace falta reconocer cada pieza. Se compara la ocupación (vacía / blanca / negra)
-de las 64 casillas con la que produciría cada jugada legal; casi siempre solo una coincide.
+No hace falta reconocer cada pieza. Se compara la ocupación (vacía / blanca / negra)
+de las 64 casillas con la que se produciría cada jugada legal; casi siempre solo una coincide.
 """
 from __future__ import annotations
 import chess
