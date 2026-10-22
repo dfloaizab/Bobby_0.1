@@ -8,7 +8,7 @@ def _detector(dict_name: str):
     dictionary = cv2.aruco.getPredefinedDictionary(getattr(cv2.aruco, dict_name))
     return cv2.aruco.ArucoDetector(dictionary, cv2.aruco.DetectorParameters())
 
-
+#Homografía y manejo de distorsiones
 def find_homography(frame: np.ndarray, cfg) -> np.ndarray | None:
     """Calcula H (imagen -> vista cenital) con los 4 marcadores (ids 0..3). None si no se ven los cuatro."""
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
